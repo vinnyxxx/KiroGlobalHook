@@ -1,0 +1,41 @@
+{
+  "name": "kiro-hooks-init",
+  "displayName": "Kiro Global Hook",
+  "description": "Auto-detect and initialize Kiro hooks from a configurable template directory when opening a workspace",
+  "version": "0.3.0",
+  "publisher": "VinnyXu",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vinnyxxx/KiroGlobalHook.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Kiro Hooks Init",
+      "properties": {
+        "kiroHooksInit.templateDir": {
+          "type": "string",
+          "default": "",
+          "scope": "application",
+          "description": "Absolute path to a directory containing .kiro.hook template files. These will be copied to .kiro/hooks/ in new workspaces."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "package": "npx @vscode/vsce package --no-dependencies --allow-missing-repository"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0",
+    "@vscode/vsce": "^3.2.0"
+  }
+}
