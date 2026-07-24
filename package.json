@@ -2,7 +2,7 @@
   "name": "kiro-hooks-init",
   "displayName": "Kiro Global Hook",
   "description": "Auto-detect and initialize Kiro hooks from a configurable template directory when opening a workspace",
-  "version": "0.3.0",
+  "version": "0.7.0",
   "publisher": "VinnyXu",
   "license": "MIT",
   "repository": {
@@ -16,6 +16,12 @@
   "activationEvents": ["onStartupFinished"],
   "main": "./out/extension.js",
   "contributes": {
+    "commands": [
+      {
+        "command": "kiroHooksInit.clearAllHooks",
+        "title": "Kiro Hooks: Clear All Hooks"
+      }
+    ],
     "configuration": {
       "title": "Kiro Hooks Init",
       "properties": {
@@ -23,7 +29,16 @@
           "type": "string",
           "default": "",
           "scope": "application",
-          "description": "Absolute path to a directory containing .kiro.hook template files. These will be copied to .kiro/hooks/ in new workspaces."
+          "description": "Absolute path to a directory containing hook template files. These will be copied to .kiro/hooks/ in new workspaces."
+        },
+        "kiroHooksInit.fileExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [".kiro.hook", ".json", ".sh"],
+          "scope": "application",
+          "description": "File extensions to sync from the template directory to .kiro/hooks/. Files matching any of these suffixes will be copied."
         }
       }
     }
