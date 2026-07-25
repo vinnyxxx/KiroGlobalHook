@@ -1,0 +1,4 @@
+publish_token
+*.vsix
+node_modules/**
+.gitignore
