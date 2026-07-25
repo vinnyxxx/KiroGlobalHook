@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.0
+
+- **Remote workspace support** — Extension now runs on the local machine (`extensionKind: ["ui"]`), so a template directory on your local disk syncs hooks into remote workspaces (SSH / cloud desktop) too. Fixes "Cannot read template directory" errors when connected to a remote host.
+
 ## 0.7.0
 
 - **Configurable file types** — New `kiroHooksInit.fileExtensions` setting controls which files are synced from the template directory (default: `.kiro.hook`, `.json`, `.sh`)

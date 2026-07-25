@@ -2,7 +2,7 @@
   "name": "kiro-hooks-init",
   "displayName": "Kiro Global Hook",
   "description": "Auto-detect and initialize Kiro hooks from a configurable template directory when opening a workspace",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "publisher": "VinnyXu",
   "license": "MIT",
   "repository": {
@@ -13,6 +13,7 @@
     "vscode": "^1.85.0"
   },
   "categories": ["Other"],
+  "extensionKind": ["ui"],
   "activationEvents": ["onStartupFinished"],
   "main": "./out/extension.js",
   "contributes": {
