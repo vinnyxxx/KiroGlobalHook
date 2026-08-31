@@ -31,4 +31,4 @@ Or manually: set `kiroHooksInit.templateDir` in Settings to the absolute path of
 |---------|---------|-------------|
 | `kiroHooksInit.templateDir` | — | Absolute path to the directory containing hook template files |
 | `kiroHooksInit.fileExtensions` | `.kiro.hook`, `.json`, `.sh` | File suffixes to sync from the template directory |
-| `kiroHooksInit.syncMode` | `additive` | `additive`: add/update only, never delete. `mirror`: also delete managed hooks removed from the template (manual hooks preserved, first sync requires confirmation) |
+| `kiroHooksInit.syncMode` | `additive` | `additive`: add/update only, never delete. `mirror`: also delete managed hooks removed from the template (manual hooks preserved, first sync requires confirmation). Workspace-overridable — set per project in `.vscode/settings.json` |

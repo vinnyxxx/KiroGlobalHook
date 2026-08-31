@@ -2,7 +2,7 @@
   "name": "kiro-hooks-init",
   "displayName": "Kiro Global Hook",
   "description": "Auto-detect and initialize Kiro hooks from a configurable template directory when opening a workspace",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "publisher": "VinnyXu",
   "license": "MIT",
   "repository": {
@@ -49,8 +49,8 @@
             "Keep synced hooks matching the template: managed files removed from the template are deleted from the workspace. Manually added hooks are preserved via a manifest. The first sync asks for confirmation before deleting anything."
           ],
           "default": "additive",
-          "scope": "application",
-          "description": "How the template directory is synced into .kiro/hooks/."
+          "scope": "resource",
+          "description": "How the template directory is synced into .kiro/hooks/. Can be set per workspace (.vscode/settings.json) to override the user-level default."
         }
       }
     }

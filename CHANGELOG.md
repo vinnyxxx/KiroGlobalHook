@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.1
+
+- `syncMode` is now workspace-overridable (`resource` scope) — set a user-level default and override it per workspace in `.vscode/settings.json`. Previously it was application-global only
+
 ## 0.9.0
 
 - **Mirror sync mode** — New `kiroHooksInit.syncMode` setting. `additive` (default) keeps the current behavior: add missing, update outdated, never delete. `mirror` also removes managed hooks that were deleted or renamed in the template

@@ -38,7 +38,8 @@ async function initHooks(context: vscode.ExtensionContext) {
   const folder = await findFirstValidFolder();
   if (!folder) { return; }
 
-  const config = vscode.workspace.getConfiguration('kiroHooksInit');
+  // Scope to the synced folder so resource-level settings (e.g. per-workspace syncMode) resolve
+  const config = vscode.workspace.getConfiguration('kiroHooksInit', folder.uri);
   const templateDir = config.get<string>('templateDir', '').trim();
 
   // No templateDir configured — show status bar + first-time notification
