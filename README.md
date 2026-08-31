@@ -1,21 +1,34 @@
 # Kiro Global Hook
 
-Automatically detects and initializes [Kiro](https://kiro.dev) hooks when you open a workspace.
+Automatically detects and initializes [Kiro](https://kiro.dev) hooks when you open a workspace. Keep your agent hooks consistent across all projects.
 
-## How it works
+## Features
 
-1. On workspace open, checks if `.kiro/hooks/` contains your hook templates
-2. If hooks are missing, prompts you to initialize them from your template directory
-3. If no template directory is configured, shows a non-intrusive status bar hint
+- **Auto-sync hooks** — On workspace open, detects missing or outdated hooks in `.kiro/hooks/` and prompts to sync from your template directory
+- **Browse Folder setup** — First-time users get a friendly notification with a "Browse Folder" button to pick their template directory via native file picker — no need to dig through settings
+- **Content-based comparison** — Compares file content, not just filenames, to detect outdated hooks
+- **Mirror mode (optional)** — Set `syncMode` to `mirror` to also delete managed hooks that were removed or renamed in the template. Manually added hooks are preserved via a manifest, and the first sync asks for confirmation before deleting anything
+- **Clear All Hooks** — One command to remove all hooks from the current workspace (with 5-second undo window)
+- **Global config** — Template directory is configured once and works across all workspaces
 
 ## Setup
 
-1. Create a directory with your `.kiro.hook` template files (e.g. `~/kiro-templates/`)
-2. Open VS Code/Kiro Settings and set `kiroHooksInit.templateDir` to that directory path
-3. Open any workspace — missing hooks will be detected and you'll be prompted to initialize
+1. Open any workspace in Kiro
+2. If no template directory is configured, a notification appears — click **"Browse Folder"** and select your hooks directory
+3. That's it! Future workspaces will auto-detect and sync hooks from that directory
+
+Or manually: set `kiroHooksInit.templateDir` in Settings to the absolute path of your hooks directory.
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `Kiro Hooks: Clear All Hooks` | Remove all hook files from `.kiro/hooks/` with 5-second undo |
 
 ## Settings
 
-| Setting | Description |
-|---------|-------------|
-| `kiroHooksInit.templateDir` | Absolute path to directory containing `.kiro.hook` template files |
+| Setting | Default | Description |
+|---------|---------|-------------|
+| `kiroHooksInit.templateDir` | — | Absolute path to the directory containing hook template files |
+| `kiroHooksInit.fileExtensions` | `.kiro.hook`, `.json`, `.sh` | File suffixes to sync from the template directory |
+| `kiroHooksInit.syncMode` | `additive` | `additive`: add/update only, never delete. `mirror`: also delete managed hooks removed from the template (manual hooks preserved, first sync requires confirmation) |

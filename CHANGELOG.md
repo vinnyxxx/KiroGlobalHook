@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.0
+
+- **Mirror sync mode** — New `kiroHooksInit.syncMode` setting. `additive` (default) keeps the current behavior: add missing, update outdated, never delete. `mirror` also removes managed hooks that were deleted or renamed in the template
+- Mirror mode tracks extension-placed files in `.kiro/.kiro-global-hook-manifest.json` — hooks you add manually are never deleted
+- First mirror sync shows a modal confirmation listing exactly which files would be deleted; declining falls back to additive behavior for that run
+
 ## 0.8.0
 
 - **Remote workspace support** — Extension now runs on the local machine (`extensionKind: ["ui"]`), so a template directory on your local disk syncs hooks into remote workspaces (SSH / cloud desktop) too. Fixes "Cannot read template directory" errors when connected to a remote host.
